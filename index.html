@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <title>TJsonify Test</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark mb-4">
+        <a class="navbar-brand mr-auto mr-lg-0" href="#">TJsonify</a>
+        <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Normal Table <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">No Header Table</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main role="main" class="container">
+        <div class="jumbotron">
+            <h2>Table with header</h2>
+            <table class="table table-sm bg-white">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Salary</th>
+                        <th>Start date</th>
+                        <th>Resignation Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Daenerys</td>
+                        <td>Targaryen</td>
+                        <td>1500</td>
+                        <td>25/04/2017</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Cersei</td>
+                        <td>Lannister</td>
+                        <td>1700</td>
+                        <td>17/03/2016</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Sansa</td>
+                        <td>Stark</td>
+                        <td>1300</td>
+                        <td>26/03/2018</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td>Petyr</td>
+                        <td>Baelish</td>
+                        <td>1600</td>
+                        <td>13/07/2015</td>
+                        <td>15/09/2019</td>
+                    </tr>
+                    <tr>
+                        <td>Shae</td>
+                        <td></td>
+                        <td>1300</td>
+                        <td>16/08/2013</td>
+                        <td>29/03/2016</td>
+                    </tr>
+                    <tr>
+                        <td>Stannis</td>
+                        <td>Baratheon</td>
+                        <td>1200</td>
+                        <td>27/04/2016</td>
+                        <td>N/A</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="/js/jquery-3.4.0.min.js"></script>
+    <script src="/js/jquery-tjsonify.min.js"></script>
+    <script>
+        var tJosn = $('table').tjsonify({
+            validation:[false,["empty","No valid Info"],false,false,["date","No date is provided"]]
+        });
+        console.log("Table Json ",tJosn);
+    </script>
+</body>
+
+</html>
